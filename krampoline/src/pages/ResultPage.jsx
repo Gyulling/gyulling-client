@@ -3,12 +3,17 @@ import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
 import Article from '../component/Result/Article';
 import RetryButton from '../component/Result/RetryButton';
+import { KAKAO_AUTH_URL } from '../constants/oAuth';
 
 const Result = () => {
   const isSuccess = true;
   const access_token = false;
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
+
+  const handleClickLoginButton = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
 
   return (
     <Wrapper>
@@ -27,7 +32,7 @@ const Result = () => {
       {!access_token && (
         <KaKaoContainer>
           {isSuccess && <InfoText>로그인하고 +100p 받기</InfoText>}
-          <KaKaoAuth />
+          <KaKaoAuth onClick={handleClickLoginButton} />
         </KaKaoContainer>
       )}
     </Wrapper>
