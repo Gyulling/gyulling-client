@@ -6,9 +6,22 @@ import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
 
 const SelectPage = () => {
-  // 추후 수정될 부분, 버튼 컨트롤을 위해서 넣은 부분
-  const [isActive, _] = useState(true);
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState([]);
+
+  const handleClickCategory = (desc) => {
+    if (selectedCategory.includes(desc)) {
+      setSelectedCategory(
+        selectedCategory.filter((category) => category !== desc)
+      );
+    } else {
+      if (selectedCategory.length < 3)
+        setSelectedCategory((prev) => [...prev, desc]);
+      else if (selectedCategory.length === 3) {
+        alert('최대 선택 개수는 3개입니다.');
+      }
+    }
+  };
 
   const handleClickOnBtn = () => {
     navigate('/quiz');
@@ -17,9 +30,16 @@ const SelectPage = () => {
   return (
     <SelectPageWrapper>
       <SelectHeader />
-      <SelectTag />
-      {/* disabled 값은 추후에 변경 예정 */}
-      <OnButton disabled={!isActive} handleFn={handleClickOnBtn} isQuiz={true}>
+      <SelectTag
+        selectedCategory={selectedCategory}
+        handleClickCategory={handleClickCategory}
+      />
+
+      <OnButton
+        disabled={!selectedCategory.length}
+        handleFn={handleClickOnBtn}
+        isQuiz={true}
+      >
         퀴즈풀기
       </OnButton>
     </SelectPageWrapper>
