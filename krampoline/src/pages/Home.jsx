@@ -1,5 +1,12 @@
+import { IcTest } from '../assets';
+
 const Home = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      HomePage
+      <IcTest />
+    </div>
+  );
 };
 
 export default Home;
