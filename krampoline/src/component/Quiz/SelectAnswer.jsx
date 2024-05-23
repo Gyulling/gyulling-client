@@ -32,7 +32,7 @@ export default SelectAnswer;
 
 const AnswerWrapper = styled.div`
   display: flex;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   margin-bottom: 5rem;
 
   gap: 2rem;

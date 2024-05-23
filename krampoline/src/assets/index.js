@@ -11,14 +11,18 @@ import IcFish from './icon/ic_fish.svg?react';
 import IcHomeButton from './icon/ic_home_button.svg?react';
 import Ichome from './icon/ic_home_logo.svg?react';
 import IcLogo from './icon/ic_logo.svg?react';
+import IcLogoGray from './icon/ic_logo_gray.svg?react';
 import IcMyInfo from './icon/ic_my_info.svg?react';
 import ICPlatinum from './icon/ic_platinum.svg?react';
 import IcQuizBack from './icon/ic_quiz_back.svg?react';
 import KaKaoAuth from './icon/kakao_auth.svg?react';
 import SuccessIcon from './icon/success.svg?react';
+import ImgBlueBadge from './img/img_blue_badge.svg?react';
+import ImgHint from './img/img_hint.svg?react';
+import ImgTurtle from './img/img_turtle.svg?react';
+
 // svg 더 추가하게 되면 ,(콤마)로 이어서 쓰기
 export {
-    Bomb, ICPlatinum, IcArrowBack, IcCloseGray, IcCorrectBlue,
-    IcCorrectGray, IcCup, IcFailBlue, IcFailGray, IcFish, IcHomeButton, IcLogo, IcMyInfo, IcQuizBack, Ichome, KaKaoAuth, SuccessIcon
+    Bomb, Bomb, ICPlatinum, IcArrowBack, IcArrowBack, IcCloseGray, IcCloseGray, IcCorrectBlue, IcCorrectBlue, IcCorrectGray, IcCorrectGray, IcCup, IcFailBlue, IcFailBlue, IcFailGray, IcFailGray, IcFish, IcHomeButton, IcLogo, IcLogo, IcLogoGray, IcMyInfo, IcQuizBack, Ichome, ImgBlueBadge, ImgHint, ImgTurtle, KaKaoAuth, KaKaoAuth, SuccessIcon, SuccessIcon
 };
 

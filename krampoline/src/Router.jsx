@@ -6,6 +6,7 @@ import OnboardingPage from './pages/OnboardingPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
+
 const Router = () => {
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 

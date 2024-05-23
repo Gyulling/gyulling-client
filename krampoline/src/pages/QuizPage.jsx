@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ImgTurtle } from '../assets';
 import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question/Question';
@@ -47,7 +48,10 @@ const QuizPage = () => {
         isQuiz={true}
       />
       <Wrapper>
-        <Dummy></Dummy>
+        <ImgWrapper>
+          <ImgTurtle />
+        </ImgWrapper>
+
         <HintWrapper>
           <Hint onClick={handleClickHint}>힌트보기</Hint>
         </HintWrapper>
@@ -58,7 +62,6 @@ const QuizPage = () => {
           handleClickFailBtn={handleClickFailBtn}
         />
       </Wrapper>
-      {/* svg로 대체될 부분 */}
 
       <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
         제출
@@ -76,6 +79,7 @@ const QuizPageWrapper = styled.section`
   justify-content: space-between;
 
   width: 100%;
+  height: calc(100dvh - 7.4rem);
 
   margin: 4rem 0 3.4rem;
 `;
@@ -88,23 +92,17 @@ const Wrapper = styled.div`
   height: calc(100dvh - 27rem);
 `;
 
-// 사라질 것
-const Dummy = styled.div`
+const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  background-color: ${({ theme }) => theme.colors.gray500};
+  margin: 2.8rem 0 3.7rem;
 `;
 
 const HintWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-top: 0.8rem;
 `;
 
 const Hint = styled.p`
