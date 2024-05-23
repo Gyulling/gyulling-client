@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IcCloseGray } from '../../assets';
+import { IcCloseGray, ImgHint } from '../../assets';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
 const CONTENTS =
@@ -17,8 +17,7 @@ const HintModalForm = ({ onClose }) => {
           <Category>힌트</Category>
           <Title>{TITLE}</Title>
 
-          {/* 나중에 svg로 대체할 부분 */}
-          <Dummy></Dummy>
+          <ImgHint />
 
           <Contents>{CONTENTS}</Contents>
         </ContentsWrapper>
