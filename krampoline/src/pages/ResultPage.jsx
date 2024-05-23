@@ -29,11 +29,16 @@ const Result = () => {
           {!isSuccess && <RetryButton>다시 도전하고 10p 얻기</RetryButton>}
         </ImageContainer>
       </SubWrapper>
-      {!access_token && (
-        <KaKaoContainer>
+
+      {access_token ? (
+        <PointBtnWrapper>
+          <CheckPointBtn type="button">포인트 확인하기</CheckPointBtn>
+        </PointBtnWrapper>
+      ) : (
+        <BtnContainer $isTokenExist={access_token}>
           {isSuccess && <InfoText>로그인하고 +100p 받기</InfoText>}
           <KaKaoAuth onClick={handleClickLoginButton} />
-        </KaKaoContainer>
+        </BtnContainer>
       )}
     </Wrapper>
   );
@@ -55,6 +60,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100dvh;
+
   background-color: ${({ theme }) => theme.colors.prime};
 `;
 
@@ -74,11 +80,26 @@ const ImageContainer = styled.div`
 
   height: calc(100dvh - 20.7rem);
 
-  /* margin-top: 0.7rem; */
   margin-bottom: 3.2rem;
 `;
 
-const KaKaoContainer = styled.div`
+const PointBtnWrapper = styled.div`
+  width: 100%;
+  padding: 0 3rem;
+`;
+
+const CheckPointBtn = styled.button`
+  margin: 6.8rem 0 3.4rem;
+  padding: 1.8rem 0;
+  width: 100%;
+  border-radius: 1.6rem;
+
+  color: ${({ theme }) => theme.colors.white};
+  ${({ theme }) => theme.fonts.h6};
+  background-color: rgba(0, 84, 161, 1);
+`;
+
+const BtnContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
