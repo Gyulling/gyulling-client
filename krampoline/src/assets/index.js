@@ -9,6 +9,8 @@ import IcFailGray from './icon/ic_fail_gray.svg?react';
 import IcLogo from './icon/ic_logo.svg?react';
 import KaKaoAuth from './icon/kakao_auth.svg?react';
 import SuccessIcon from './icon/success.svg?react';
+import ImgBlueBadge from './img/img_blue_badge.svg?react';
+import IcLogoGray from './icon/ic_logo_gray.svg?react'
 
 // svg 더 추가하게 되면 ,(콤마)로 이어서 쓰기
 export {
@@ -19,6 +21,6 @@ export {
     IcCorrectGray,
     IcFailBlue,
     IcFailGray,
-    IcLogo, KaKaoAuth, SuccessIcon
+    IcLogo, ImgBlueBadge, KaKaoAuth, SuccessIcon, IcLogoGray
 };
 
