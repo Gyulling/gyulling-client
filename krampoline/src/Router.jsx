@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginCallback from './component/Login/LoginCallback';
-import OnboardingPage from './pages/OnboardingPage';
+import OnboardingPage from './pages/WaitingPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
