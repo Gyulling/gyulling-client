@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICPlatinum, IcHomeButton, IcMyInfo, IcQuizBack } from '../assets';
 import FooterTitle from '../component/Home/FooterTitle';
@@ -5,6 +6,7 @@ import HomeHeader from '../component/Home/HomeHeader';
 
 const Home = () => {
   const point = 2500;
+  const navigate = useNavigate('/');
   return (
     <Wrapper>
       <HomeHeader />
@@ -22,9 +24,9 @@ const Home = () => {
       </MainWrapper>
       <FooterTitle />
       <InfoBoxWrapper>
-        <IcQuizBack />
-        <IcHomeButton />
-        <IcMyInfo />
+        <IcQuizBack onClick={() => navigate('/quiz')} />
+        <IcHomeButton onClick={() => navigate('/')} />
+        <IcMyInfo onClick={() => navigate('/mypage')} />
       </InfoBoxWrapper>
     </Wrapper>
   );
