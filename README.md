@@ -154,8 +154,8 @@
 - img_picture.png
   index.ts에서 svg 컴포넌트화 하여 export → 컴포넌트에서 import 시 컴포넌트처럼 불러오기
 
-- 파일명 : `ic_arrow.svg` _(snake case)_
-- 컴포넌트명 (사용할 때) : `IcArrow.svg` _(Pascal case)_
+- 파일명 : `ic_test.svg` _(snake case)_
+- 컴포넌트명 (사용할 때) : `IcTest.svg` _(Pascal case)_
 
 📁 **src > pages**
 페이지의 최상단 컴포넌트. 각 컴포넌트를 하나의 페이지에서 호출하는 곳
