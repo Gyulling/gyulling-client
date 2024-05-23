@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { INTEREST_CATEGORY } from '../../constants/selectCategory';
 
 const SelectTag = () => {
+  const [selectedCategory, setSelectedCategory] = useState([]);
+
+  const handleClickCategory = (desc) => {
+    if (selectedCategory.includes(desc)) {
+      setSelectedCategory(
+        selectedCategory.filter((category) => category !== desc)
+      );
+    } else {
+      if (selectedCategory.length < 3)
+        setSelectedCategory((prev) => [...prev, desc]);
+      else if (selectedCategory.length === 3) {
+        alert('최대 선택 개수는 3개입니다.');
+      }
+    }
+  };
+
   return (
     <SelectTagWrapper>
       {INTEREST_CATEGORY.map((data, idx) => {
         const { img, desc } = data;
-
         return (
-          <DataWrapper key={idx}>
-            <DataImg>{img}</DataImg>
-            <DataDesc>{desc}</DataDesc>
-          </DataWrapper>
+          <CategoryWrapper key={idx}>
+            <CategoryImg
+              $isClicked={selectedCategory.includes(desc)}
+              onClick={() => {
+                handleClickCategory(desc);
+              }}
+            >
+              {img}
+            </CategoryImg>
+            <CategoryDesc>{desc}</CategoryDesc>
+          </CategoryWrapper>
         );
       })}
     </SelectTagWrapper>
@@ -35,14 +57,14 @@ const SelectTagWrapper = styled.article`
   gap: 2.4rem 2.7rem;
 `;
 
-const DataWrapper = styled.div`
+const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
   gap: 1.2rem;
 `;
 
-const DataImg = styled.p`
+const CategoryImg = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,10 +72,11 @@ const DataImg = styled.p`
   border-radius: 10rem;
 
   ${({ theme }) => theme.fonts.h2};
-  background-color: ${({ theme }) => theme.colors.gray200};
+  background-color: ${({ theme, $isClicked }) =>
+    $isClicked ? theme.colors.prime : theme.colors.gray200};
 `;
 
-const DataDesc = styled.p`
+const CategoryDesc = styled.p`
   text-align: center;
   ${({ theme }) => theme.fonts.h6_Semibold};
   color: ${({ theme }) => theme.colors.gray600};
