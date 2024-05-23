@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
-import Question from '../common/Question';
+import Question from '../common/Question/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
 
 const QuizPage = () => {
