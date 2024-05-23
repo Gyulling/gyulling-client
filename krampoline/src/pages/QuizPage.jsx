@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
@@ -9,6 +10,11 @@ const QuizPage = () => {
   const navigate = useNavigate();
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
+
+  const handleClickHint = () => {
+    setModalOn(true);
+  };
 
   const handleClickCorrectBtn = () => {
     if (failIc) {
@@ -35,6 +41,7 @@ const QuizPage = () => {
 
   return (
     <QuizPageWrapper>
+      {modalOn && <HintModal onClose={() => setModalOn(false)} />}
       <Question
         mainQuestion={'무엇을 좋아하세요?'}
         subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
@@ -43,7 +50,7 @@ const QuizPage = () => {
       <Wrapper>
         <Dummy></Dummy>
         <HintWrapper>
-          <Hint>힌트보기</Hint>
+          <Hint onClick={handleClickHint}>힌트보기</Hint>
         </HintWrapper>
         <SelectAnswer
           correctIc={correctIc}
