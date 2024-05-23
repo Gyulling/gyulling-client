@@ -67,8 +67,8 @@ const DUMMY = [
 const SelectTag = () => {
   return (
     <SelectTagWrapper>
-      {DUMMY.map((data) => {
-        return <div>{data}</div>;
+      {DUMMY.map((data, idx) => {
+        return <div key={idx}>{data}</div>;
       })}
     </SelectTagWrapper>
   );
