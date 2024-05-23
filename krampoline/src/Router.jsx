@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import OnboardingPage from './pages/OnboardingPage';
-import RetryPage from './pages/Retry';
+import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
 
 const Router = () => {
@@ -17,7 +17,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={homeComponent} />
-        <Route path="/result" element={<RetryPage />} />
+        <Route path="/result" element={<ResultPage />} />
       </Routes>
     </BrowserRouter>
   );
