@@ -188,7 +188,7 @@ custom hooks 정의하는 경우 이곳에서 정의 후 사용
 | Styling              | ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)                                                                           |
 | Data Fetching        | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white)                                                                                                                |
 | Formatting           | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
-| Package Manager      | ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)                                                                                                                   |
+| Package Manager      | ![npm](https://img.shields.io/badge/Npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)                                                                                                                      |
 | Version Control      | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)  |
 
 <br />
@@ -204,7 +204,7 @@ custom hooks 정의하는 경우 이곳에서 정의 후 사용
 ## 👨‍👧‍👧 우리만의 그라운드룰
 
 - `div`남발하지 않고 최대한 시멘틱한 태그를 사용하도록 노력하자
-- 솝커톤 환경 특성상 난이도/볼륨에 대해 적극적으로 의견을 나누자
+- 해커톤 환경 특성상 난이도/볼륨에 대해 적극적으로 의견을 나누자
 - 타파트/자신파트의 결정사항에 있어서 조금이라도 불확실한 부분은 **반드시!! 확실하게 짚고 넘어가** 🚨
 - 리프레시 타임을 가지자♻️ : 2시간에 한번씩 5분! 일어나서 움직이고, 스트레칭하고, 산소 공급합시다
 
@@ -212,11 +212,10 @@ custom hooks 정의하는 경우 이곳에서 정의 후 사용
 
 <h2>웨비 Before and After</h2>
 <h3>Before</h3>
-<img src="https://velog.velcdn.com/images/aroo_ming/post/acb74fdf-14ba-4daa-a8c3-b19896a60dd1/image.jpg" alt="웨비 팀원들 사진 (before)"/>
+<img src="" alt="해커톤 전 (before)"/>
  
 <h3>After</h3>
-<img src="" alt="웨비 팀원들 사진 (after)"/>
-<img src="https://github.com/DOSOPT-SOPKATHON-WEB4/Web/assets/81505421/8083be3e-d04f-4929-af32-51a101f3a996" alt="웨비 팀원들 사진 (after)"/>
+<img src="" alt="해커톤 후 (after)"/>
 
 <br />
 
