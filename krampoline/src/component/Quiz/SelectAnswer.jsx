@@ -14,10 +14,14 @@ const SelectAnswer = ({
 }) => {
   return (
     <AnswerWrapper>
-      <AnswerBtn type="button" onClick={handleClickCorrectBtn}>
+      <AnswerBtn
+        type="button"
+        onClick={handleClickCorrectBtn}
+        $isClick={correctIc}
+      >
         {correctIc ? <IcCorrectBlue /> : <IcCorrectGray />}
       </AnswerBtn>
-      <AnswerBtn type="button" onClick={handleClickFailBtn}>
+      <AnswerBtn type="button" onClick={handleClickFailBtn} $isClick={failIc}>
         {failIc ? <IcFailBlue /> : <IcFailGray />}
       </AnswerBtn>
     </AnswerWrapper>
@@ -38,5 +42,6 @@ const AnswerBtn = styled.button`
   padding: 4.5rem 4.2rem;
   border-radius: 1.3rem;
 
-  background-color: ${({ theme }) => theme.colors.gray100};
+  background-color: ${({ theme, $isClick }) =>
+    $isClick ? theme.colors.skyblue : theme.colors.gray100};
 `;

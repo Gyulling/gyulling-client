@@ -17,17 +17,23 @@ const QuestionWrapper = styled.div`
   flex-direction: column;
   align-items: ${({ $isQuiz }) => ($isQuiz ? css`center` : css`flex-start`)};
   justify-content: center;
-  gap: 0.8rem;
 
-  margin-bottom: 4.2rem;
+  margin-bottom: 2rem;
 `;
 
 const Category = styled.p`
-  ${({ theme }) => theme.fonts.h6};
-  color: ${({ theme }) => theme.colors.gray400};
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.1rem 0.3rem;
+  border-radius: 0.8rem;
+
+  ${({ theme }) => theme.fonts.h6_Semibold};
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.quiz};
 `;
 
 const MainQuestion = styled.p`
+  margin-bottom: 0.8rem;
+
   ${({ theme }) => theme.fonts.h3};
 `;
 
