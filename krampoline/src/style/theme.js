@@ -123,6 +123,14 @@ const fonts = {
     line-height: 2.4rem;
     letter-spacing: -0.01rem;
   `,
+  hint: css`
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.4rem;
+    letter-spacing: -0.01rem;
+  `,
 };
 
 const theme = {
