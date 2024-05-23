@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginCallback from './component/Login/LoginCallback';
+import Mypage from './pages/Mypage';
 import OnboardingPage from './pages/OnboardingPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
@@ -18,6 +19,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Mypage />} />
         <Route path="/splash" element={homeComponent} />
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />
