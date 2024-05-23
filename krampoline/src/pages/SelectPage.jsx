@@ -2,13 +2,26 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import OnButton from '../common/OnButton';
-import Question from '../common/Question/Question';
+import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
 
 const SelectPage = () => {
-  // 추후 수정될 부분, 버튼 컨트롤을 위해서 넣은 부분
-  const [isActive, _] = useState(true);
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState([]);
+
+  const handleClickCategory = (desc) => {
+    if (selectedCategory.includes(desc)) {
+      setSelectedCategory(
+        selectedCategory.filter((category) => category !== desc)
+      );
+    } else {
+      if (selectedCategory.length < 3)
+        setSelectedCategory((prev) => [...prev, desc]);
+      else if (selectedCategory.length === 3) {
+        alert('최대 선택 개수는 3개입니다.');
+      }
+    }
+  };
 
   const handleClickOnBtn = () => {
     navigate('/quiz');
@@ -16,14 +29,18 @@ const SelectPage = () => {
 
   return (
     <SelectPageWrapper>
-      <Question
-        mainQuestion={'무엇을 좋아하세요?'}
-        subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
+      <SelectHeader />
+      <SelectTag
+        selectedCategory={selectedCategory}
+        handleClickCategory={handleClickCategory}
       />
-      <SelectTag />
-      {/* disabled 값은 추후에 변경 예정 */}
-      <OnButton disabled={!isActive} handleFn={handleClickOnBtn}>
-        다음
+
+      <OnButton
+        disabled={!selectedCategory.length}
+        handleFn={handleClickOnBtn}
+        isQuiz={true}
+      >
+        퀴즈풀기
       </OnButton>
     </SelectPageWrapper>
   );
@@ -39,5 +56,5 @@ const SelectPageWrapper = styled.section`
 
   width: 100%;
 
-  margin: 7.2rem 0 3.4rem;
+  margin: 5.6rem 0 3.4rem;
 `;

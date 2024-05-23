@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const OnButton = ({ children, disabled, handleFn }) => {
+const OnButton = ({ children, isQuiz, disabled, handleFn }) => {
   return (
-    <Button disabled={disabled} onClick={handleFn}>
+    <Button disabled={disabled} onClick={handleFn} $isQuiz={isQuiz}>
       {children}
     </Button>
   );
@@ -13,7 +13,8 @@ const Button = styled.button`
     disabled ? theme.colors.gray300 : theme.colors.prime};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 1.6rem;
-  padding: 1.5rem 15.7rem;
+  padding: ${({ $isQuiz }) =>
+    $isQuiz ? css`1.5rem 14.3rem` : css` 1.5rem 15.7rem`};
   border: none;
   ${({ theme }) => theme.fonts.h6}
   cursor: pointer;
