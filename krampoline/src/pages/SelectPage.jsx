@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import OnButton from '../common/OnButton';
 import Question from '../component/Select/Question';
 import SelectTag from '../component/Select/SelectTag';
 
@@ -7,6 +8,8 @@ const SelectPage = () => {
     <SelectPageWrapper>
       <Question />
       <SelectTag />
+      {/* disabled 값은 추후에 변경 예정 */}
+      <OnButton disabled={false}>다음</OnButton>
     </SelectPageWrapper>
   );
 };
