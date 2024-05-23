@@ -8,8 +8,22 @@ const useKakaoLogin = () => {
       api.post(GET_ACCESS_TOKEN_URL).then((res) => {
         const { access_token } = res.data;
 
-        // 서버에 보낼 데이터들 (추후 서버 통신 코드로 대체 예정)
-        console.log(access_token, CODE);
+        api
+          .post(
+            `https://kapi.kakao.com/v2/user/me`,
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${access_token}`,
+                'Content-type':
+                  'application/x-www-form-urlencoded;charset=utf-8',
+              },
+            }
+          )
+          .then((res) => {
+            const { nickname } = res.data.kakao_account.profile;
+            console.log(nickname);
+          });
       });
     }
   }, [CODE]);
