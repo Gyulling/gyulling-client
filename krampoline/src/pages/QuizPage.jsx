@@ -62,7 +62,6 @@ const QuizPage = () => {
           handleClickFailBtn={handleClickFailBtn}
         />
       </Wrapper>
-      {/* svg로 대체될 부분 */}
 
       <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
         제출
