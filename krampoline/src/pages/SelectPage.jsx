@@ -1,9 +1,19 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question';
 import SelectTag from '../component/Select/SelectTag';
 
 const SelectPage = () => {
+  // 추후 수정될 부분, 버튼 컨트롤을 위해서 넣은 부분
+  const [isActive, _] = useState(true);
+  const navigate = useNavigate();
+
+  const handleClickOnBtn = () => {
+    navigate('/quiz');
+  };
+
   return (
     <SelectPageWrapper>
       <Question
@@ -12,7 +22,9 @@ const SelectPage = () => {
       />
       <SelectTag />
       {/* disabled 값은 추후에 변경 예정 */}
-      <OnButton disabled={false}>다음</OnButton>
+      <OnButton disabled={!isActive} handleFn={handleClickOnBtn}>
+        다음
+      </OnButton>
     </SelectPageWrapper>
   );
 };
