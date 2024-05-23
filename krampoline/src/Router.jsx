@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginCallback from './component/Login/LoginCallback';
-import LoginPage from './pages/LoginPage';
 import OnboardingPage from './pages/OnboardingPage';
+import QuizPage from './pages/QuizPage';
 import SelectPage from './pages/SelectPage';
 
 const Router = () => {
@@ -18,8 +17,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={homeComponent} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/login/oauth2/callback" element={<LoginCallback />} />
+        <Route path="/quiz" element={<QuizPage />} />
       </Routes>
     </BrowserRouter>
   );

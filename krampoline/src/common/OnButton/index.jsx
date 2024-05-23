@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-const OnButton = ({ children, disabled }) => {
-  return <Button disabled={disabled}>{children}</Button>;
+const OnButton = ({ children, disabled, handleFn }) => {
+  return (
+    <Button disabled={disabled} onClick={handleFn}>
+      {children}
+    </Button>
+  );
 };
 
 const Button = styled.button`

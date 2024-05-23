@@ -15,6 +15,8 @@ const colors = {
   gray900: '#252729',
   prime: '#3CC2FF',
   sub: '#FFB800',
+  skyblue: '#E0F5FF',
+  quiz: '#FFCA44',
 };
 
 const fonts = {
@@ -120,6 +122,14 @@ const fonts = {
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 500;
+    line-height: 2.4rem;
+    letter-spacing: -0.01rem;
+  `,
+  hint: css`
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
     line-height: 2.4rem;
     letter-spacing: -0.01rem;
   `,
