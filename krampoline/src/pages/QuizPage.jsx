@@ -6,9 +6,27 @@ import Question from '../common/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
 
 const QuizPage = () => {
-  // 추후 수정될 부분, 버튼 컨트롤을 위해서 넣은 부분
-  const [isActive, _] = useState(true);
   const navigate = useNavigate();
+  const [correctIc, setCorrectIc] = useState(false);
+  const [failIc, setFailIc] = useState(false);
+
+  const handleClickCorrectBtn = () => {
+    if (failIc) {
+      setFailIc(false);
+      setCorrectIc(true);
+    } else {
+      setCorrectIc(!correctIc);
+    }
+  };
+
+  const handleClickFailBtn = () => {
+    if (correctIc) {
+      setCorrectIc(false);
+      setFailIc(true);
+    } else {
+      setFailIc(!failIc);
+    }
+  };
 
   const handleClickOnBtn = () => {
     // 추후 결과 페이지로 라우팅 예정
@@ -24,12 +42,19 @@ const QuizPage = () => {
       />
       <Wrapper>
         <Dummy></Dummy>
-        <SelectAnswer />
+        <HintWrapper>
+          <Hint>힌트보기</Hint>
+        </HintWrapper>
+        <SelectAnswer
+          correctIc={correctIc}
+          failIc={failIc}
+          handleClickCorrectBtn={handleClickCorrectBtn}
+          handleClickFailBtn={handleClickFailBtn}
+        />
       </Wrapper>
       {/* svg로 대체될 부분 */}
 
-      {/* disabled 값은 추후에 변경 예정 */}
-      <OnButton disabled={!isActive} handleFn={handleClickOnBtn}>
+      <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
         제출
       </OnButton>
     </QuizPageWrapper>
@@ -59,6 +84,24 @@ const Wrapper = styled.div`
 
 // 사라질 것
 const Dummy = styled.div`
-  width: 20rem;
-  height: 19.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: ${({ theme }) => theme.colors.gray500};
+`;
+
+const HintWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0.8rem;
+`;
+
+const Hint = styled.p`
+  color: ${({ theme }) => theme.colors.gray600};
+  ${({ theme }) => theme.fonts.h6};
 `;

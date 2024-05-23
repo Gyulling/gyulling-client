@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import {
   IcCorrectBlue,
@@ -7,28 +6,12 @@ import {
   IcFailGray,
 } from '../../assets';
 
-const SelectAnswer = () => {
-  const [correctIc, setCorrectIc] = useState(false);
-  const [failIc, setFailIc] = useState(false);
-
-  const handleClickCorrectBtn = () => {
-    if (failIc) {
-      setFailIc(false);
-      setCorrectIc(true);
-    } else {
-      setCorrectIc(!correctIc);
-    }
-  };
-
-  const handleClickFailBtn = () => {
-    if (correctIc) {
-      setCorrectIc(false);
-      setFailIc(true);
-    } else {
-      setFailIc(!failIc);
-    }
-  };
-
+const SelectAnswer = ({
+  correctIc,
+  failIc,
+  handleClickCorrectBtn,
+  handleClickFailBtn,
+}) => {
   return (
     <AnswerWrapper>
       <AnswerBtn type="button" onClick={handleClickCorrectBtn}>
