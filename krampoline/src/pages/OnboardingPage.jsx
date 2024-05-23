@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import Contents from '../component/onBoarding/Contents';
+import Contents from '../common/Loading/Contents';
 
 const OnboardingPage = () => {
   return (
     <OnboardingWrapper>
-      <Contents />
+      <Contents textArr={['지식도 쌓고, 포인트도 얻고!', '똑똑한 소비습관']} />
     </OnboardingWrapper>
   );
 };
