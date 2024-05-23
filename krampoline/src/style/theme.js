@@ -15,6 +15,8 @@ const colors = {
   gray900: '#252729',
   prime: '#3CC2FF',
   sub: '#FFB800',
+  skyblue: '#E0F5FF',
+  quiz: '#FFCA44',
 };
 
 const fonts = {
