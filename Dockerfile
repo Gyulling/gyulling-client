@@ -5,7 +5,6 @@ COPY krampoline/package*.json ./
 RUN npm ci
 COPY krampoline/ ./
 RUN npm run build
-RUN apt-get install xdg-utils
 
 # Run stage
 FROM krmp-d2hub-idock.9rum.cc/goorm/node:16
