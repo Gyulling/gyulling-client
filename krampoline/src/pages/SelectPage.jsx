@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import OnButton from '../common/OnButton';
-import Question from '../common/Question/Question';
+import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
 
 const SelectPage = () => {
@@ -16,10 +16,7 @@ const SelectPage = () => {
 
   return (
     <SelectPageWrapper>
-      <Question
-        mainQuestion={'무엇을 좋아하세요?'}
-        subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
-      />
+      <SelectHeader />
       <SelectTag />
       {/* disabled 값은 추후에 변경 예정 */}
       <OnButton disabled={!isActive} handleFn={handleClickOnBtn}>
@@ -39,5 +36,5 @@ const SelectPageWrapper = styled.section`
 
   width: 100%;
 
-  margin: 7.2rem 0 3.4rem;
+  margin: 5.6rem 0 3.4rem;
 `;
