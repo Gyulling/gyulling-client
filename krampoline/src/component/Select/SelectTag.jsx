@@ -1,28 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { INTEREST_CATEGORY } from '../../constants/selectCategory';
 
-const SelectTag = () => {
-  const [selectedCategory, setSelectedCategory] = useState([]);
-
-  const handleClickCategory = (desc) => {
-    if (selectedCategory.includes(desc)) {
-      setSelectedCategory(
-        selectedCategory.filter((category) => category !== desc)
-      );
-    } else {
-      if (selectedCategory.length < 3)
-        setSelectedCategory((prev) => [...prev, desc]);
-      else if (selectedCategory.length === 3) {
-        alert('최대 선택 개수는 3개입니다.');
-      }
-    }
-  };
-
+const SelectTag = ({ selectedCategory, handleClickCategory }) => {
   return (
     <SelectTagWrapper>
       {INTEREST_CATEGORY.map((data, idx) => {
         const { img, desc } = data;
+
         return (
           <CategoryWrapper key={idx}>
             <CategoryImg
