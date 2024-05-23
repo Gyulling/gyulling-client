@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const Question = () => {
+const Question = ({ mainQuestion, subQuestion }) => {
   return (
     <QuestionWrapper>
-      <MainQuestion>무엇을 좋아하세요?</MainQuestion>
-      <SubQusetion>좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.</SubQusetion>
+      <MainQuestion>{mainQuestion}</MainQuestion>
+      <SubQusetion>{subQuestion}</SubQusetion>
     </QuestionWrapper>
   );
 };
