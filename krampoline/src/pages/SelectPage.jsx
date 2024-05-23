@@ -19,8 +19,8 @@ const SelectPage = () => {
       <SelectHeader />
       <SelectTag />
       {/* disabled 값은 추후에 변경 예정 */}
-      <OnButton disabled={!isActive} handleFn={handleClickOnBtn}>
-        다음
+      <OnButton disabled={!isActive} handleFn={handleClickOnBtn} isQuiz={true}>
+        퀴즈풀기
       </OnButton>
     </SelectPageWrapper>
   );
