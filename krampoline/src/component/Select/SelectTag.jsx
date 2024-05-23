@@ -78,7 +78,7 @@ export default SelectTag;
 
 const SelectTagWrapper = styled.article`
   width: 100%;
-  height: calc(100dvh - 24.4rem);
+  height: calc(100dvh - 28.6rem);
   margin-bottom: 1.6rem;
 
   overflow-y: auto;
