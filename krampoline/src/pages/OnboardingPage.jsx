@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Contents from '../common/Loading/Contents';
+import Contents from '../common/Waiting/Contents';
 
 const OnboardingPage = () => {
   return (
