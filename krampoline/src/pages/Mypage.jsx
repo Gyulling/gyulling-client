@@ -1,14 +1,33 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../common/Header/Header';
 import ProfileCard from '../component/Mypage/ProfileCard';
 
 const Mypage = () => {
+  const location = useLocation();
+  const handleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('클립보드에 링크가 복사되었어요.');
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <MypageWrapper>
       <Header />
       <WelcomeText>제주 환경지킴이가 된 것을 축하해!</WelcomeText>
       <ProfileCard />
-      <ShareBtn type="button">이벤트 공유</ShareBtn>
+      <ShareBtn
+        type="button"
+        onClick={() => {
+          handleCopyClipBoard(
+            `${import.meta.env.VITE_APP_BASE_URL}${location.pathname}`
+          );
+        }}
+      >
+        이벤트 공유
+      </ShareBtn>
     </MypageWrapper>
   );
 };
