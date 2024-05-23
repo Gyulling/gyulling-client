@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginCallback from './pages/LoginCallback';
+import LoginPage from './pages/LoginPage';
 import OnboardingPage from './pages/OnboardingPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
-
 const Router = () => {
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 
