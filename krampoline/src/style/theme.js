@@ -17,14 +17,110 @@ const colors = {
 
 const fonts = {
   // 아래 형식으로 정의
-  /* title_semibold_24: css`
+    h1: css`
+    font-family: 'Pretendard';
+    font-size: 3.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 5.7rem;
+    letter-spacing: -0.04rem;
+  `, 
+    h2: css`
+    font-family: 'Pretendard';
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 4.8rem;
+    letter-spacing: -0.04rem;
+  `, 
+    h3: css`
     font-family: 'Pretendard';
     font-size: 2.4rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 130%;
-    letter-spacing: -0.024rem;
-  `, */
+    line-height: 3.6rem;
+    letter-spacing: -0.03rem;
+  `, 
+    h4: css`
+    font-family: 'Pretendard';
+    font-size: 2.0rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.0rem;
+    letter-spacing: -0.02rem;
+  `, 
+    h5: css`
+    font-family: 'Pretendard';
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.7rem;
+    letter-spacing: -0.01rem;
+  `, 
+    h6: css`
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4rem;
+    letter-spacing: -0.01rem;
+  `, 
+    subtitle_1: css`
+    font-family: 'Pretendard';
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: -0.01rem;
+  `, 
+    subtitle_2: css`
+    font-family: 'Pretendard';
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: 0rem;
+  `, 
+    paragraph_lg: css`
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.4rem;
+    letter-spacing: -0.01rem;
+  `, 
+    paragraph: css`
+    font-family: 'Pretendard';
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: -0.01rem;
+  `, 
+    paragraph_sm: css`
+    font-family: 'Pretendard';
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.01rem;
+  `, 
+    caption: css`
+    font-family: 'Pretendard';
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: 0.04rem;
+  `, 
+    h6_Semibold: css`
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.4rem;
+    letter-spacing: -0.01rem;
+  `, 
 };
 
 const theme = {
