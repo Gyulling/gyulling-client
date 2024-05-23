@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 const colors = {
   // 아래 형식으로 정의
   white: '#FFFFFF',
