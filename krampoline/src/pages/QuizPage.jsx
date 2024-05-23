@@ -35,8 +35,7 @@ const QuizPage = () => {
   };
 
   const handleClickOnBtn = () => {
-    // 추후 결과 페이지로 라우팅 예정
-    navigate('/');
+    navigate('/result');
   };
 
   return (
