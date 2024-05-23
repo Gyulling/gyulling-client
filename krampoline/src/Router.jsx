@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginCallback from './component/Login/LoginCallback';
+import Home from './pages/Home';
 import OnboardingPage from './pages/OnboardingPage';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
-
 const Router = () => {
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 
@@ -22,6 +22,7 @@ const Router = () => {
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
