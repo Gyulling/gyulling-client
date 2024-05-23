@@ -16,6 +16,10 @@ const OnboardingWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.83rem;
+
+  width: 100%;
+  height: 100dvh;
 
   background-color: ${({ theme }) => theme.colors.prime};
 `;
