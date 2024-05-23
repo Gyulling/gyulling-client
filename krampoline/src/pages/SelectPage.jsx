@@ -20,6 +20,6 @@ const SelectPageWrapper = styled.section`
   justify-content: center;
 
   width: 100%;
-  /* height: 100dvh; */
+
   margin: 7.2rem 0 3.4rem;
 `;
