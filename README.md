@@ -120,12 +120,12 @@
 |-- 📁 node_modules
 |-- 📁 public
 |-- 📁 src
-	|-- 📁 components
-    |-- 📁 common
+    	|-- 📁 components
+    	|-- 📁 common
 	|-- 📁 pages
 	|-- 📁 libs
-        |-- 📁 hooks
-    |-- 📁 constants
+       		 |-- 📁 hooks
+	|-- 📁 constants
 	|-- 📁 assets
 		|-- 📁 icon
 		|-- 📁 image
@@ -142,7 +142,7 @@
 |-- package.json
 |-- README.md
 |-- vite.config.js
-|-- yarn.lock
+|-- pakage-lock.lock
 ```
 
 📁 **src > assets**
