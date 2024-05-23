@@ -79,6 +79,8 @@ export default SelectTag;
 const SelectTagWrapper = styled.article`
   width: 100%;
   height: calc(100dvh - 24.4rem);
+  margin-bottom: 1.6rem;
+
   overflow-y: auto;
 
   background-color: ${({ theme }) => theme.colors.prime};
