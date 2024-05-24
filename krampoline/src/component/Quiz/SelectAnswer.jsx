@@ -12,6 +12,7 @@ const SelectAnswer = ({
   handleClickCorrectBtn,
   handleClickFailBtn,
 }) => {
+const quizId = sessionStorage.getItem("quizId");
   return (
     <AnswerWrapper>
       <AnswerBtn

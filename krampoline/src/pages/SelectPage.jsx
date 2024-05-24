@@ -33,11 +33,16 @@ const SelectPage = () => {
                  {keyword: selectedCategory[2]}
              ],
          });
-         console.log(data);
+         const quizId = data.data;
+         sessionStorage.setItem("quizId", quizId);
+         const question = api.get(`/api/v1/quiz/${quizId}`);
+         const contents = question.data.content;
+         sessionStorage.setItem("contents", contents);
+         navigate('/quiz');
+         
      } catch(err) {
          console.log(err);
      }
-    // navigate('/quiz');
   };
 
   return (

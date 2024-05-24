@@ -22,7 +22,11 @@ const useKakaoLogin = () => {
           )
           .then((res) => {
             const { nickname } = res.data.kakao_account.profile;
-            console.log(nickname);
+            api.post(`/api/v1/auth/${nickname}`).then((res) => {
+                const {usesrId, name} = res.data;
+                sessionStorage.setItem("usesrId", usesrId);
+                sessionStorage.setItem("name", name);
+            })
           });
       });
     }

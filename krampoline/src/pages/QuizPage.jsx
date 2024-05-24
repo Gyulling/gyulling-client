@@ -12,6 +12,7 @@ const QuizPage = () => {
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
+  const mainContents = sessionStorage.getItem("contents");
 
   const handleClickHint = () => {
     setModalOn(true);
@@ -43,8 +44,8 @@ const QuizPage = () => {
     <QuizPageWrapper>
       {modalOn && <HintModal onClose={() => setModalOn(false)} />}
       <Question
-        mainQuestion={'무엇을 좋아하세요?'}
-        subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
+        mainQuestion={mainContents}
+        // subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
         isQuiz={true}
       />
       <Wrapper>
