@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import OnButton from '../common/OnButton';
 import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
+import {api} from '../libs/api'
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -23,8 +24,20 @@ const SelectPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-    navigate('/quiz');
+  const handleClickOnBtn = async () => {
+     try {
+         const data = await api.post('/api/vi/quiz', {
+             keywords: [
+                 {keyword: selectedCategory[0]},
+                 {keyword: selectedCategory[1]},
+                 {keyword: selectedCategory[2]}
+             ],
+         });
+         console.log(data);
+     } catch(err) {
+         console.log(err);
+     }
+    // navigate('/quiz');
   };
 
   return (
