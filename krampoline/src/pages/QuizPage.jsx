@@ -39,10 +39,10 @@ const QuizPage = () => {
     }
   };
 
-  const handleClickOnBtn = async () => {
-     const data = await api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
-      data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
-     navigate('/result', {state: isCorrect});
+  const handleClickOnBtn = () => {
+     const data = api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
+     data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
+     navigate('/result', {state : isCorrect});
   };
 
   return (
@@ -50,7 +50,7 @@ const QuizPage = () => {
       {modalOn && <HintModal onClose={() => setModalOn(false)} />}
       <Question
         mainQuestion={mainContents}
-        // subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
+        <!-- subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'} -->
         isQuiz={true}
       />
       <Wrapper>

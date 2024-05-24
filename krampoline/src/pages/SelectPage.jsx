@@ -24,9 +24,9 @@ const SelectPage = () => {
     }
   };
 
-  const handleClickOnBtn = async () => {
+  const handleClickOnBtn = () => {
      try {
-         const data = await api.post('/api/v1/quiz', {
+         const data = api.post('/api/v1/quiz', {
              keywords: [
                  {keyword: selectedCategory[0]},
                  {keyword: selectedCategory[1]},
