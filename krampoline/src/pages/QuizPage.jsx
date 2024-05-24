@@ -12,7 +12,10 @@ const QuizPage = () => {
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
   const mainContents = sessionStorage.getItem("contents");
+  const quizId = sessionStorage.getItem("quizId");
+  const userId = sessionStorage.getItem("userId") ? sessionStorage.getItem("userId") : 1;
 
   const handleClickHint = () => {
     setModalOn(true);
@@ -36,8 +39,10 @@ const QuizPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-    navigate('/result');
+  const handleClickOnBtn = async () => {
+     const data = await api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
+      data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
+     navigate('/result', {state: isCorrect});
   };
 
   return (
