@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import { ICPlatinum, IcHomeButton, IcMyInfo, IcQuizBack } from '../assets';
 import FooterTitle from '../component/Home/FooterTitle';
 import HomeHeader from '../component/Home/HomeHeader';
+import { api } from '../libs/api';
 
 const Home = () => {
-  const point = 2500;
+  const userId = !sessionStorage.getItem("userId") ? 1 : sessionStorage.getItem("userId");
+  const data = api.get(`/api/v1/user/${userId}/point`);
+  const point = data.data.data.point;
+  //  const point = 2500;
   const navigate = useNavigate('/');
   return (
     <Wrapper>
