@@ -12,6 +12,10 @@ const QuizPage = () => {
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const mainContents = sessionStorage.getItem("contents");
+  const quizId = sessionStorage.getItem("quizId");
+  const userId = sessionStorage.getItem("userId") ? sessionStorage.getItem("userId") : 1;
 
   const handleClickHint = () => {
     setModalOn(true);
@@ -36,14 +40,16 @@ const QuizPage = () => {
   };
 
   const handleClickOnBtn = () => {
-    navigate('/result');
+     const data = api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
+     data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
+     navigate('/result', {state : isCorrect});
   };
 
   return (
     <QuizPageWrapper>
       {modalOn && <HintModal onClose={() => setModalOn(false)} />}
       <Question
-        mainQuestion={'무엇을 좋아하세요?'}
+        mainQuestion={mainContents}
         subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
         isQuiz={true}
       />
