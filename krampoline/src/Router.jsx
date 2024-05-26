@@ -12,19 +12,19 @@ const Router = () => {
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 
   useEffect(() => {
+    const token = sessionStorage.getItem('token');
     setTimeout(() => {
-      setHomeComponent(<SelectPage />);
+      token ? setHomeComponent(<Home />) : setHomeComponent(<SelectPage />);
     }, 1500);
   }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/splash" element={homeComponent} />
+        <Route path="/" element={homeComponent} />
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
-        <Route path="/" element={<Home />} />
         <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
