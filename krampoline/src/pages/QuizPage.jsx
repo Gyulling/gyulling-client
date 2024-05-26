@@ -6,6 +6,7 @@ import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
+import { api } from '../libs/api';
 
 const QuizPage = () => {
   const navigate = useNavigate();
@@ -13,9 +14,11 @@ const QuizPage = () => {
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const mainContents = sessionStorage.getItem("contents");
-  const quizId = sessionStorage.getItem("quizId");
-  const userId = sessionStorage.getItem("userId") ? sessionStorage.getItem("userId") : 1;
+  const mainContents = sessionStorage.getItem('contents');
+  const quizId = sessionStorage.getItem('quizId');
+  const userId = sessionStorage.getItem('userId')
+    ? sessionStorage.getItem('userId')
+    : 1;
 
   const handleClickHint = () => {
     setModalOn(true);
@@ -40,9 +43,11 @@ const QuizPage = () => {
   };
 
   const handleClickOnBtn = () => {
-     const data = api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
-     data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
-     navigate('/result', {state : isCorrect});
+    const data = api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {
+      answer: correctIc ? 1 : 0,
+    });
+    data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
+    navigate('/result', { state: isCorrect });
   };
 
   return (

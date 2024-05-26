@@ -6,7 +6,9 @@ import HomeHeader from '../component/Home/HomeHeader';
 import { api } from '../libs/api';
 
 const Home = () => {
-  const userId = !sessionStorage.getItem("userId") ? 1 : sessionStorage.getItem("userId");
+  const userId = !sessionStorage.getItem('userId')
+    ? 1
+    : sessionStorage.getItem('userId');
   const data = api.get(`/api/v1/user/${userId}/point`);
   const point = data.data.data.point;
   //  const point = 2500;
