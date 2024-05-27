@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
@@ -12,10 +12,16 @@ const Result = () => {
   const access_token = sessionStorage.getItem('token');
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
+  const navigate = useNavigate();
 
   const handleClickLoginButton = () => {
     window.location.href = KAKAO_AUTH_URL;
   };
+
+  const handleClickPointBtn = () => {
+    navigate('/');
+  };
+
   return (
     <Wrapper>
       <Header />
@@ -33,7 +39,9 @@ const Result = () => {
 
       {access_token ? (
         <PointBtnWrapper>
-          <CheckPointBtn type="button">포인트 확인하기</CheckPointBtn>
+          <CheckPointBtn type="button" onClick={handleClickPointBtn}>
+            포인트 확인하기
+          </CheckPointBtn>
         </PointBtnWrapper>
       ) : (
         <BtnContainer $isTokenExist={access_token}>
