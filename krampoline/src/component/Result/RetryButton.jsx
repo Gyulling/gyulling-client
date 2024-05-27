@@ -1,7 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const RetryButton = ({ children }) => {
-  return <Button>{children}</Button>;
+  const navigate = useNavigate();
+  const handleClickRetryBtn = () => {
+    const quizId = sessionStorage.getItem('quizId');
+
+    // 에러 페이지 나오면 quizId가 없는 경우 에러 페이지로 보내버리기
+    if (quizId) {
+      navigate('/quiz');
+    }
+  };
+  return <Button onClick={handleClickRetryBtn}>{children}</Button>;
 };
 
 const Button = styled.button`
