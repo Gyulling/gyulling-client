@@ -1,22 +1,21 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
 import Article from '../component/Result/Article';
 import RetryButton from '../component/Result/RetryButton';
 import { KAKAO_AUTH_URL } from '../constants/oAuth';
-import { useLocation } from 'react-router-dom';
 
 const Result = () => {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const isSuccess = state;
-  const access_token = false;
+  const access_token = sessionStorage.getItem('token');
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
 
   const handleClickLoginButton = () => {
     window.location.href = KAKAO_AUTH_URL;
   };
-
   return (
     <Wrapper>
       <Header />
