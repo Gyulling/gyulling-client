@@ -13,7 +13,6 @@ const QuizPage = () => {
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
   const mainContents = sessionStorage.getItem('contents');
 
   const handleClickHint = () => {
@@ -40,8 +39,7 @@ const QuizPage = () => {
 
   const handleClickOnBtn = async () => {
     const { correct } = await postAnswer();
-    correct ? setIsCorrect(true) : setIsCorrect(false);
-    navigate('/result', { state: isCorrect });
+    navigate('/result', { state: correct });
   };
 
   return (
