@@ -1,15 +1,21 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IcCloseGray, ImgHint } from '../../assets';
-// import { useEffect } from 'react';
-import { api } from '../../libs/api';
+import getHint from '../../libs/apis/QuizPage/getHint';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
-// const CONTENTS ='제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
 
 const HintModalForm = ({ onClose }) => {
-  const quizId = sessionStorage.getItem('quizId');
-  const data = api.get(`api/v1/quiz/${quizId}/hint`);
-  const CONTENTS = data.data.hint;
+  const [updatedContent, setUpdatedContent] = useState('');
+
+  const updateHintContent = async () => {
+    const { hint } = await getHint();
+    setUpdatedContent(hint);
+  };
+
+  useEffect(() => {
+    updateHintContent();
+  }, []);
 
   return (
     <HintModalWrapper>
@@ -24,7 +30,7 @@ const HintModalForm = ({ onClose }) => {
 
           <ImgHint />
 
-          <Contents>{CONTENTS}</Contents>
+          <Contents>{updatedContent}</Contents>
         </ContentsWrapper>
       </HintModalContents>
     </HintModalWrapper>
