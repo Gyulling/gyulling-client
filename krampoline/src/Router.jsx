@@ -9,14 +9,14 @@ import SelectPage from './pages/SelectPage';
 import OnboardingPage from './pages/WaitingPage';
 
 const Router = () => {
+  const token = sessionStorage.getItem('token');
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 
   useEffect(() => {
-    const token = sessionStorage.getItem('token');
     setTimeout(() => {
       token ? setHomeComponent(<Home />) : setHomeComponent(<SelectPage />);
     }, 1500);
-  }, []);
+  }, [token]);
 
   return (
     <BrowserRouter>
