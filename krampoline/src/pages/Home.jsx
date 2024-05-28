@@ -7,6 +7,7 @@ import HomeHeader from '../component/Home/HomeHeader';
 import getPoint from '../libs/apis/Home/getPoint';
 
 const Home = () => {
+  const navigate = useNavigate('/');
   const [newPoint, setNewPoint] = useState(0);
 
   const updatePoint = async () => {
@@ -18,7 +19,6 @@ const Home = () => {
     updatePoint();
   }, []);
 
-  const navigate = useNavigate('/');
   return (
     <Wrapper>
       <HomeHeader />
