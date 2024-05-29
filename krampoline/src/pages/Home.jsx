@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICPlatinum, IcHomeButton, IcMyInfo, IcQuizBack } from '../assets';
@@ -6,10 +7,28 @@ import HomeHeader from '../component/Home/HomeHeader';
 import { api } from '../libs/api';
 
 const Home = () => {
-  const userId = !sessionStorage.getItem("userId") ? 1 : sessionStorage.getItem("userId");
-  const data = api.get(`/api/v1/user/${userId}/point`);
-  const point = data.data.data.point;
-  //  const point = 2500;
+  const userId = sessionStorage.getItem('userId');
+  // console.log(userId);
+  // const data = api.get(`/api/v1/user/${userId}/point`);
+
+  const [newPoint, setNewPoint] = useState(null);
+
+  const fetchPoint = async () => {
+    try {
+      const { data } = await api.get(`/api/v1/user/${userId}/point`);
+      // const res = await api.get(`/api/v1/user/${userId}/point`);
+      const { point } = data.data; // 중첩되지 않은 객체 분해 할당
+      setNewPoint(point);
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPoint();
+  }, []);
+
   const navigate = useNavigate('/');
   return (
     <Wrapper>
@@ -18,7 +37,7 @@ const Home = () => {
         <HeaderBorderLine />
         <HasPonitText>보유포인트</HasPonitText>
         <PointWrapper>
-          <HasPointNum>{point.toLocaleString()}</HasPointNum>
+          <HasPointNum>{newPoint}</HasPointNum>
           <PointHistory>포인트 내역</PointHistory>
         </PointWrapper>
         <BorderLine />
