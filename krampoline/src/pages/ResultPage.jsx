@@ -1,13 +1,13 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
 import Article from '../component/Result/Article';
 import RetryButton from '../component/Result/RetryButton';
 import { KAKAO_AUTH_URL } from '../constants/oAuth';
-import { useLocation } from 'react-router-dom';
 
 const Result = () => {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const isSuccess = state;
   const access_token = false;
   const DUMMY =
