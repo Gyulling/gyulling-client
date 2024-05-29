@@ -10,7 +10,6 @@ const useKakaoLogin = () => {
     if (CODE) {
       axios.post(GET_ACCESS_TOKEN_URL).then((res) => {
         const { access_token } = res.data;
-        sessionStorage.setItem('token', access_token);
 
         axios
           .post(
