@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,11 +14,14 @@ const QuizPage = () => {
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const mainContents = sessionStorage.getItem("contents");
-  const quizId = sessionStorage.getItem("quizId");
-  const userId = sessionStorage.getItem("userId") ? sessionStorage.getItem("userId") : 1;
+  // const [isHint, setIsHint] = useState(''); // hint 상태 추가
+  const mainContents = sessionStorage.getItem('contents');
+  const quizId = sessionStorage.getItem('quizId');
+  const userId = sessionStorage.getItem('userId')
+    ? sessionStorage.getItem('userId')
+    : 1;
 
-  const handleClickHint = () => {
+  const handleClickHint = async () => {
     setModalOn(true);
   };
 
@@ -39,10 +43,16 @@ const QuizPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-     const data = api.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {answer: correctIc ? 1 : 0});
-     data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
-     navigate('/result', {state : isCorrect});
+  const handleClickOnBtn = async () => {
+    try {
+      const data = await axios.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {
+        answer: correctIc ? 1 : 0,
+      });
+      data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
+      navigate('/result', { state: isCorrect });
+    } catch (error) {
+      throw new Error(String(error));
+    }
   };
 
   return (
