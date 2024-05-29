@@ -9,19 +9,27 @@ import SelectPage from './pages/SelectPage';
 import OnboardingPage from './pages/WaitingPage';
 
 const Router = () => {
-  const token = sessionStorage.getItem('token');
+  const [isLoading, setIsLoading] = useState(true);
   const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
 
   useEffect(() => {
-    setTimeout(() => {
-      token ? setHomeComponent(<Home />) : setHomeComponent(<SelectPage />);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+
+      const userId = sessionStorage.getItem('userId');
+      userId ? setHomeComponent(<Home />) : setHomeComponent(<SelectPage />);
     }, 1500);
-  }, [token]);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={homeComponent} />
+        <Route
+          path="/"
+          element={isLoading ? <OnboardingPage /> : homeComponent}
+        />
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
