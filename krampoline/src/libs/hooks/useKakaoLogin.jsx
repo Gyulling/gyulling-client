@@ -10,7 +10,6 @@ const useKakaoLogin = () => {
     if (CODE) {
       axios.post(GET_ACCESS_TOKEN_URL).then((res) => {
         const { access_token } = res.data;
-        sessionStorage.setItem('token', access_token);
 
         axios
           .post(
@@ -27,8 +26,8 @@ const useKakaoLogin = () => {
           .then((res) => {
             const { nickname } = res.data.kakao_account.profile;
             api.post(`/api/v1/auth/${nickname}`).then((res) => {
-              const { usesrId, name } = res.data;
-              sessionStorage.setItem('usesrId', usesrId);
+              const { userId, name } = res.data.data;
+              sessionStorage.setItem('userId', userId);
               sessionStorage.setItem('name', name);
               navigate('/');
             });
