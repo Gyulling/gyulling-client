@@ -5,7 +5,7 @@ import { IcArrowBack } from '../../assets';
 const Header = () => {
   const navigate = useNavigate();
   const handleClickBackBtn = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   return (

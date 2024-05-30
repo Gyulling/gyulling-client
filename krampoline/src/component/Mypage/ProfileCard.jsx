@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { IcLogoGray, ImgBlueBadge } from '../../assets';
+import { USER_INFO } from '../../constants/profileCard';
 
 const ProfileCard = () => {
   const RANDOM_NUM = parseInt(Math.random() * 100000).toLocaleString();
-  // 서버에서 회원인증 성공 후 받아온 값
-  const username = '정재희';
+  const username = sessionStorage.getItem('name');
 
   return (
     <ProfileCardWrapper>
@@ -20,14 +20,16 @@ const ProfileCard = () => {
       <ImgBlueBadge />
       <UserName>{username}</UserName>
       <Line></Line>
-      <InfoWrapper>
-        <Info>부서</Info>
-        <InfoDetail>해양 환경 보존</InfoDetail>
-      </InfoWrapper>
-      <InfoWrapper>
-        <Info>담당지역</Info>
-        <InfoDetail>제주도 서귀포시</InfoDetail>
-      </InfoWrapper>
+
+      {USER_INFO.map((info, idx) => {
+        const { title, content } = info;
+        return (
+          <InfoWrapper key={idx}>
+            <Info>{title}</Info>
+            <InfoDetail>{content}</InfoDetail>
+          </InfoWrapper>
+        );
+      })}
 
       <LogoWrapper>
         <IcLogoGray />

@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import OnButton from '../common/OnButton';
 import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
-import {api} from '../libs/api'
+import getQuizContent from '../libs/apis/SelectPage/getQuizContent';
+import postKeywords from '../libs/apis/SelectPage/postKeywords';
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -24,25 +25,20 @@ const SelectPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-     try {
-         const data = api.post('/api/v1/quiz', {
-             keywords: [
-                 {keyword: selectedCategory[0]},
-                 {keyword: selectedCategory[1]},
-                 {keyword: selectedCategory[2]}
-             ],
-         });
-         const quizId = data.data;
-         sessionStorage.setItem("quizId", quizId);
-         const question = api.get(`/api/v1/quiz/${quizId}`);
-         const contents = question.data.content;
-         sessionStorage.setItem("contents", contents);
-         navigate('/quiz');
-         
-     } catch(err) {
-         console.log(err);
-     }
+  const handleClickOnBtn = async () => {
+    try {
+      const { quizId } = await postKeywords(selectedCategory);
+      if (quizId) {
+        sessionStorage.setItem('quizId', quizId);
+        const { content } = await getQuizContent(quizId);
+        if (content) {
+          sessionStorage.setItem('contents', content);
+          navigate('/quiz');
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

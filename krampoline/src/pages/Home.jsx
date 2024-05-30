@@ -1,16 +1,24 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICPlatinum, IcHomeButton, IcMyInfo, IcQuizBack } from '../assets';
 import FooterTitle from '../component/Home/FooterTitle';
 import HomeHeader from '../component/Home/HomeHeader';
-import { api } from '../libs/api';
+import getPoint from '../libs/apis/Home/getPoint';
 
 const Home = () => {
-  const userId = !sessionStorage.getItem("userId") ? 1 : sessionStorage.getItem("userId");
-  const data = api.get(`/api/v1/user/${userId}/point`);
-  const point = data.data.data.point;
-  //  const point = 2500;
   const navigate = useNavigate('/');
+  const [newPoint, setNewPoint] = useState(0);
+
+  const updatePoint = async () => {
+    const { point } = await getPoint();
+    setNewPoint(point);
+  };
+
+  useEffect(() => {
+    updatePoint();
+  }, []);
+
   return (
     <Wrapper>
       <HomeHeader />
@@ -18,7 +26,7 @@ const Home = () => {
         <HeaderBorderLine />
         <HasPonitText>보유포인트</HasPonitText>
         <PointWrapper>
-          <HasPointNum>{point.toLocaleString()}</HasPointNum>
+          <HasPointNum>{newPoint.toLocaleString()}</HasPointNum>
           <PointHistory>포인트 내역</PointHistory>
         </PointWrapper>
         <BorderLine />

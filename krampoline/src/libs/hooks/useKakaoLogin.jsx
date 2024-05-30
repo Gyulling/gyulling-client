@@ -1,14 +1,17 @@
+import axios from 'axios';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CODE, GET_ACCESS_TOKEN_URL } from '../../constants/oAuth';
 import { api } from '../api';
 
 const useKakaoLogin = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     if (CODE) {
-      api.post(GET_ACCESS_TOKEN_URL).then((res) => {
+      axios.post(GET_ACCESS_TOKEN_URL).then((res) => {
         const { access_token } = res.data;
 
-        api
+        axios
           .post(
             `https://kapi.kakao.com/v2/user/me`,
             {},
@@ -23,10 +26,11 @@ const useKakaoLogin = () => {
           .then((res) => {
             const { nickname } = res.data.kakao_account.profile;
             api.post(`/api/v1/auth/${nickname}`).then((res) => {
-                const {usesrId, name} = res.data;
-                sessionStorage.setItem("usesrId", usesrId);
-                sessionStorage.setItem("name", name);
-            })
+              const { userId, name } = res.data.data;
+              sessionStorage.setItem('userId', userId);
+              sessionStorage.setItem('name', name);
+              navigate('/');
+            });
           });
       });
     }
