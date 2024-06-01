@@ -15,6 +15,8 @@ const QuizPage = () => {
   const [modalOn, setModalOn] = useState(false);
   const mainContents = sessionStorage.getItem('contents');
 
+  if (!mainContents) return;
+
   const handleClickHint = () => {
     setModalOn(true);
   };
