@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import { IcLogoGray, ImgBlueBadge } from '../../assets';
 import { USER_INFO } from '../../constants/profileCard';
 
 const ProfileCard = () => {
-  const RANDOM_NUM = parseInt(Math.random() * 100000).toLocaleString();
+  const RANDOM_NUM = Math.ceil(Math.random() * 100000).toLocaleString();
   const username = sessionStorage.getItem('name');
 
   return (
