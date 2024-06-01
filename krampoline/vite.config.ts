@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), svgr()],
   base: '',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx'],
     alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
   },
 
