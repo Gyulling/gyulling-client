@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import {
   IcCorrectBlue,
@@ -6,13 +5,14 @@ import {
   IcFailBlue,
   IcFailGray,
 } from '../../assets';
+import { SelectAnswerProps } from '../../types/ComponentType/componentType';
 
 const SelectAnswer = ({
   correctIc,
   failIc,
   handleClickCorrectBtn,
   handleClickFailBtn,
-}) => {
+}: SelectAnswerProps) => {
   return (
     <AnswerWrapper>
       <AnswerBtn
@@ -39,7 +39,7 @@ const AnswerWrapper = styled.div`
   gap: 2rem;
 `;
 
-const AnswerBtn = styled.button`
+const AnswerBtn = styled.button<{ $isClick: boolean }>`
   padding: 4.5rem 4.2rem;
   border-radius: 1.3rem;
 
