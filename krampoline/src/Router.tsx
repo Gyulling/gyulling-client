@@ -10,7 +10,9 @@ import OnboardingPage from './pages/WaitingPage';
 
 const Router = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
+  const [homeComponent, setHomeComponent] = useState(
+    <OnboardingPage isLoadingPage={false} />
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,7 +30,9 @@ const Router = () => {
       <Routes>
         <Route
           path="/"
-          element={isLoading ? <OnboardingPage /> : homeComponent}
+          element={
+            isLoading ? <OnboardingPage isLoadingPage={false} /> : homeComponent
+          }
         />
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />

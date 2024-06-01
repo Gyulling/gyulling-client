@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../common/Header/Header';
@@ -6,7 +5,7 @@ import ProfileCard from '../component/Mypage/ProfileCard';
 
 const Mypage = () => {
   const location = useLocation();
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       alert('클립보드에 링크가 복사되었어요.');

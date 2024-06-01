@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ImgTurtle } from '../assets';
@@ -38,7 +38,7 @@ const QuizPage = () => {
   };
 
   const handleClickOnBtn = async () => {
-    const { correct } = await postAnswer();
+    const { correct } = await postAnswer({ correctIc: false });
     navigate('/result', { state: correct });
   };
 
@@ -66,7 +66,11 @@ const QuizPage = () => {
         />
       </Wrapper>
 
-      <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
+      <OnButton
+        disabled={!correctIc && !failIc}
+        isQuiz={true}
+        handleFn={handleClickOnBtn}
+      >
         제출
       </OnButton>
     </QuizPageWrapper>

@@ -1,13 +1,13 @@
-import React from 'react';
 import styled from 'styled-components';
 import Contents from '../common/Waiting/Contents';
+import { WaitingPageProps } from '../types/PageType/pageType';
 
-const WaitingPage = ({ isLoading }) => {
+const WaitingPage = ({ isLoadingPage }: WaitingPageProps) => {
   return (
     <Wrapper>
       <Contents
         textArr={
-          isLoading
+          isLoadingPage
             ? ['선택하신 키워드로 퀴즈를', '생성중입니다...']
             : ['지식도 쌓고, 포인트도 얻고!', '똑똑한 소비습관']
         }

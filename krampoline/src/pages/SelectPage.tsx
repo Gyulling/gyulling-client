@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import OnButton from '../common/OnButton';
@@ -9,9 +9,9 @@ import postKeywords from '../libs/apis/SelectPage/postKeywords';
 
 const SelectPage = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<Array<string>>([]);
 
-  const handleClickCategory = (desc) => {
+  const handleClickCategory = (desc: string) => {
     if (selectedCategory.includes(desc)) {
       setSelectedCategory(
         selectedCategory.filter((category) => category !== desc)
