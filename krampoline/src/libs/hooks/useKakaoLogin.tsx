@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CODE, GET_ACCESS_TOKEN_URL } from '../../constants/oAuth';
 import { api } from '../api';

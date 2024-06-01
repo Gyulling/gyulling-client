@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ICPlatinum, IcHomeButton, IcMyInfo, IcQuizBack } from '../assets';
@@ -7,7 +7,7 @@ import HomeHeader from '../component/Home/HomeHeader';
 import getPoint from '../libs/apis/Home/getPoint';
 
 const Home = () => {
-  const navigate = useNavigate('/');
+  const navigate = useNavigate();
   const [newPoint, setNewPoint] = useState(0);
 
   const updatePoint = async () => {

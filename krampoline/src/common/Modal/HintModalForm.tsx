@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IcCloseGray, ImgHint } from '../../assets';
 import getHint from '../../libs/apis/QuizPage/getHint';

@@ -1,3 +1,4 @@
+import React from 'react';
 import HintModalForm from './HintModalForm';
 import ModalPortal from './ModalPortal';
 

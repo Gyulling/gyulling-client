@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, DefaultTheme } from 'styled-components';
 
 const colors = {
   // 아래 형식으로 정의
@@ -135,7 +135,7 @@ const fonts = {
   `,
 };
 
-const theme = {
+const theme: DefaultTheme = {
   colors,
   fonts,
 };

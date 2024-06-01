@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/// <reference types="vite-plugin-svgr/client" />
 import Bomb from './icon/bomb.svg?react';
 import IcArrowBack from './icon/ic_arrow_back.svg?react';
 import IcCloseGray from './icon/ic_close_gray.svg?react';
