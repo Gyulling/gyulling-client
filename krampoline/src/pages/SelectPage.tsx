@@ -27,10 +27,10 @@ const SelectPage = () => {
 
   const handleClickOnBtn = async () => {
     try {
-      const { quizId } = await postKeywords(selectedCategory);
+      const { quizId } = await postKeywords({ selectedCategory });
       if (quizId) {
         sessionStorage.setItem('quizId', quizId);
-        const { content } = await getQuizContent(quizId);
+        const { content } = await getQuizContent({ quizId });
         if (content) {
           sessionStorage.setItem('contents', content);
           navigate('/quiz');
