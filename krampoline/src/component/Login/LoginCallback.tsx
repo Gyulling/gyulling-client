@@ -1,4 +1,3 @@
-import React from 'react';
 import useKakaoLogin from '../../libs/hooks/useKakaoLogin';
 
 const LoginCallback = () => {
