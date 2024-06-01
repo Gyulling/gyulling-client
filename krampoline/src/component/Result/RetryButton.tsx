@@ -1,8 +1,8 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ChildrenProps } from '../../types/ComponentType/componentType';
 
-const RetryButton = ({ children }) => {
+const RetryButton = ({ children }: ChildrenProps) => {
   const navigate = useNavigate();
   const handleClickRetryBtn = () => {
     const quizId = sessionStorage.getItem('quizId');

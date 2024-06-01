@@ -1,7 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
+import { ChildrenProps } from '../../types/ComponentType/componentType';
 
-const Article = ({ children }) => {
+const Article = ({ children }: ChildrenProps) => {
   return (
     <ArticleWrapper>
       <Contents>{children}</Contents>
