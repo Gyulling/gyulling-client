@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { IcCup, IcFish } from '../../assets';
 
@@ -30,7 +29,6 @@ const FooterTitle = () => {
 };
 
 const IconWrapper = styled.div`
-  /* width: 100%; */
   margin-left: 2rem;
   margin-right: 2rem;
 `;
@@ -38,7 +36,7 @@ const IconWrapper = styled.div`
 const ReportWrapper = styled.div`
   width: 100%;
   height: calc(100dvh - 25rem);
-  background-color: ${({ theme }) => theme.colors.gray50};
+  background-color: ${({ theme }) => theme.colors.gray050};
   border-radius: 1.6rem 1.6rem 0 0;
   margin-top: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.white};
