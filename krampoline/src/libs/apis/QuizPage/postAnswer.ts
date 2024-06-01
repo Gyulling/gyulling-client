@@ -1,7 +1,7 @@
-import { postAnswerProps } from '../../../types/ApiType/apiType';
+import { PostAnswerProps } from '../../../types/ApiType/apiType';
 import { api } from '../../api';
 
-const postAnswer = async ({ correctIc }: postAnswerProps) => {
+const postAnswer = async ({ correctIc }: PostAnswerProps) => {
   const quizId = sessionStorage.getItem('quizId');
   const userId = !sessionStorage.getItem('userId')
     ? 1

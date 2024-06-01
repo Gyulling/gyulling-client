@@ -1,6 +1,7 @@
+import { PostKeywordsProps } from '../../../types/ApiType/apiType';
 import { api } from '../../api';
 
-const postKeywords = async (selectedCategory) => {
+const postKeywords = async ({ selectedCategory }: PostKeywordsProps) => {
   const { data } = await api.post('/api/v1/quiz', {
     keywords: [
       { keyword: selectedCategory[0] },
