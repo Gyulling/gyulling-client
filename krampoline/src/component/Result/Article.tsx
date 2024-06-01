@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ChildrenProps } from '../../types/ComponentType/componentType';
+import { ChildrenProps } from '../../types/CommonType/commonType';
 
 const Article = ({ children }: ChildrenProps) => {
   return (

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ChildrenProps } from '../../types/ComponentType/componentType';
+import { ChildrenProps } from '../../types/CommonType/commonType';
 
 const RetryButton = ({ children }: ChildrenProps) => {
   const navigate = useNavigate();
