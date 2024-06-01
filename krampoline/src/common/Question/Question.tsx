@@ -1,7 +1,7 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
+import { QuestionProps } from '../../types/CommonType/commonType';
 
-const Question = ({ mainQuestion, subQuestion, isQuiz }) => {
+const Question = ({ mainQuestion, subQuestion, isQuiz }: QuestionProps) => {
   return (
     <QuestionWrapper $isQuiz={isQuiz}>
       {isQuiz && <Category>OX 퀴즈</Category>}
@@ -13,7 +13,7 @@ const Question = ({ mainQuestion, subQuestion, isQuiz }) => {
 
 export default Question;
 
-const QuestionWrapper = styled.div`
+const QuestionWrapper = styled.div<{ $isQuiz: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ $isQuiz }) => ($isQuiz ? css`center` : css`flex-start`)};

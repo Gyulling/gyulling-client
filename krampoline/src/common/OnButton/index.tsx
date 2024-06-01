@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { OnButtonProps } from '../../types/CommonType/commonType';
 
 const OnButton = ({ children, isQuiz, disabled, handleFn }: OnButtonProps) => {
   return (

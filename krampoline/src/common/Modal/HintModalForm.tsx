@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IcCloseGray, ImgHint } from '../../assets';
 import getHint from '../../libs/apis/QuizPage/getHint';
+import { ModalProps } from '../../types/CommonType/commonType';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
 
-const HintModalForm = ({ onClose }) => {
+const HintModalForm = ({ onClose }: ModalProps) => {
   const [updatedContent, setUpdatedContent] = useState('');
 
   const updateHintContent = async () => {
