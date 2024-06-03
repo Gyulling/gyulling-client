@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    // svgr 플러그인 추가
+    "types": ["vite-plugin-svgr/client", "node"],
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  // 프로그램에 포함할 파일 이름이나 패턴 배열 지정
+  "include": ["src"],
+  // 프로젝트 참조 - 빌드 및 편집기 상호 작용 시간을 크게 개선, 구성 요소 간의 논리적 분리 강화, 새롭고 향상된 방식으로 코드 구성 가능
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
