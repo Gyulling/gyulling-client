@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import OnButton from '../common/OnButton';
 import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
-import { api } from '../libs/api';
+import getKeywords from '../libs/apis/SelectPage/getKeywords';
+import getQuizContent from '../libs/apis/SelectPage/getQuizContents';
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -26,37 +27,19 @@ const SelectPage = () => {
 
   const handleClickOnBtn = async () => {
     try {
-      const { data } = await api.post(
-        '/api/v1/quiz',
-        {
-          keywords: [
-            { keyword: selectedCategory[0] },
-            { keyword: selectedCategory[1] },
-            { keyword: selectedCategory[2] },
-          ],
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        }
-      );
-      // console.log({quizId});
-      const quizId = data.data;
-      // console.log(quizId); // undefiend
-      sessionStorage.setItem('quizId', quizId);
-      const question = await api.get(`/api/v1/quiz/${quizId}`);
-      console.log(question);
-      const contents = question.data.data.content;
-      console.log(contents);
-      sessionStorage.setItem('contents', contents);
-      navigate('/quiz');
-    } catch (err) {
-      console.log(err);
+      const quizId = await getKeywords(selectedCategory);
+      const content = await getQuizContent(quizId);
+      if (quizId) {
+        sessionStorage.setItem('quizId', quizId);
+      }
+      if (content) {
+        sessionStorage.setItem('contents', content);
+        navigate('/quiz');
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
-
   return (
     <SelectPageWrapper>
       <SelectHeader />
