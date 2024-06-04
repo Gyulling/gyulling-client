@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -7,19 +6,14 @@ import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
+import { postAnswer } from '../libs/apis/postAnswer';
 
 const QuizPage = () => {
   const navigate = useNavigate();
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  // const [isHint, setIsHint] = useState(''); // hint 상태 추가
   const mainContents = sessionStorage.getItem('contents');
-  const quizId = sessionStorage.getItem('quizId');
-  const userId = sessionStorage.getItem('userId')
-    ? sessionStorage.getItem('userId')
-    : 1;
 
   const handleClickHint = async () => {
     setModalOn(true);
@@ -45,11 +39,12 @@ const QuizPage = () => {
 
   const handleClickOnBtn = async () => {
     try {
-      const data = await axios.post(`/api/v1/quiz/${quizId}/solve/${userId}`, {
-        answer: correctIc ? 1 : 0,
-      });
-      data.data.correct ? setIsCorrect(true) : setIsCorrect(false);
-      navigate('/result', { state: isCorrect });
+      // ?  const res = await postAnswer(); 이렇게 찍고
+      const { correct } = await postAnswer();
+      //? console.log(correct);  찍으면 undefiend 뜸
+      // console.log(res);
+      navigate('/result', { state: correct });
+      // ? navigate('/result'); 이렇게 해도 작동 잘 됌 , state : correct 왜 넣은지 모르겠음
     } catch (error) {
       throw new Error(String(error));
     }
