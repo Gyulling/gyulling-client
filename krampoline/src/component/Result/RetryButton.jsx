@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const RetryButton = ({ children }) => {
-  return <Button>{children}</Button>;
+const RetryButton = ({ children, onClick }) => {
+  return <Button onClick={onClick}>{children}</Button>;
 };
 
 const Button = styled.button`

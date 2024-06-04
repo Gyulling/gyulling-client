@@ -1,25 +1,37 @@
 import styled from 'styled-components';
 import { IcCloseGray, ImgHint } from '../../assets';
+// import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import getHint from '../../libs/apis/getHint';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
-const CONTENTS =
-  '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
 
 const HintModalForm = ({ onClose }) => {
+  const [updataedContent, setUpdatedContent] = useState('');
+  useEffect(() => {
+    const hintBox = async () => {
+      try {
+        const { hint } = await getHint();
+        setUpdatedContent(hint);
+      } catch (error) {
+        console.error('Error fetching hint:', error);
+      }
+    };
+
+    hintBox();
+  }, []);
+
   return (
     <HintModalWrapper>
       <HintModalContents>
         <IconWrapper onClick={onClose}>
           <IcCloseGray />
         </IconWrapper>
-
         <ContentsWrapper>
           <Category>힌트</Category>
           <Title>{TITLE}</Title>
-
           <ImgHint />
-
-          <Contents>{CONTENTS}</Contents>
+          <Contents>{updataedContent}</Contents>
         </ContentsWrapper>
       </HintModalContents>
     </HintModalWrapper>
@@ -86,13 +98,13 @@ const Title = styled.p`
   word-break: keep-all;
 `;
 
-const Dummy = styled.div`
-  width: 16.2rem;
-  height: 15.6rem;
+// const Dummy = styled.div`
+//   width: 16.2rem;
+//   height: 15.6rem;
 
-  /* 나중에 지울 부분 */
-  background-color: ${({ theme }) => theme.colors.gray500};
-`;
+//   /* 나중에 지울 부분 */
+//   background-color: ${({ theme }) => theme.colors.gray500};
+// `;
 
 const Contents = styled.p`
   margin-top: 4rem;

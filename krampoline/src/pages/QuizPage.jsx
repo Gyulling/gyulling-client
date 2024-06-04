@@ -6,14 +6,16 @@ import HintModal from '../common/Modal/HintModal';
 import OnButton from '../common/OnButton';
 import Question from '../common/Question/Question';
 import SelectAnswer from '../component/Quiz/SelectAnswer';
+import { postAnswer } from '../libs/apis/postAnswer';
 
 const QuizPage = () => {
   const navigate = useNavigate();
   const [correctIc, setCorrectIc] = useState(false);
   const [failIc, setFailIc] = useState(false);
   const [modalOn, setModalOn] = useState(false);
+  const mainContents = sessionStorage.getItem('contents');
 
-  const handleClickHint = () => {
+  const handleClickHint = async () => {
     setModalOn(true);
   };
 
@@ -35,15 +37,24 @@ const QuizPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-    navigate('/result');
+  const handleClickOnBtn = async () => {
+    try {
+      // ? const res = await postAnswer(); 이렇게 찍고
+      // ? console.log(res); true 뜸
+      // ? navigate('/result'); 이렇게 해도 작동 잘 됌 , state : correct 왜 넣은지 모르겠음
+      // ? console.log(correct);  찍으면 undefiend 뜸
+      const { correct } = await postAnswer();
+      navigate('/result', { state: correct });
+    } catch (error) {
+      throw new Error(String(error));
+    }
   };
 
   return (
     <QuizPageWrapper>
       {modalOn && <HintModal onClose={() => setModalOn(false)} />}
       <Question
-        mainQuestion={'무엇을 좋아하세요?'}
+        mainQuestion={mainContents}
         subQuestion={'좋아하는 것과 관련한 퀴즈를 풀 수 있습니다.'}
         isQuiz={true}
       />

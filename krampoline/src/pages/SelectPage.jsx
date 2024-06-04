@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import OnButton from '../common/OnButton';
 import SelectHeader from '../component/Select/SelectHeader';
 import SelectTag from '../component/Select/SelectTag';
+import getKeywords from '../libs/apis/SelectPage/getKeywords';
+import getQuizContent from '../libs/apis/SelectPage/getQuizContents';
 
 const SelectPage = () => {
   const navigate = useNavigate();
@@ -23,10 +25,21 @@ const SelectPage = () => {
     }
   };
 
-  const handleClickOnBtn = () => {
-    navigate('/quiz');
+  const handleClickOnBtn = async () => {
+    try {
+      const quizId = await getKeywords(selectedCategory);
+      const content = await getQuizContent(quizId);
+      if (quizId) {
+        sessionStorage.setItem('quizId', quizId);
+      }
+      if (content) {
+        sessionStorage.setItem('contents', content);
+        navigate('/quiz');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
-
   return (
     <SelectPageWrapper>
       <SelectHeader />
