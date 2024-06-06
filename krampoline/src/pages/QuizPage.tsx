@@ -63,7 +63,11 @@ const QuizPage = () => {
         />
       </Wrapper>
 
-      <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
+      <OnButton
+        disabled={!correctIc && !failIc}
+        isQuiz={true}
+        handleFn={handleClickOnBtn}
+      >
         제출
       </OnButton>
     </QuizPageWrapper>
