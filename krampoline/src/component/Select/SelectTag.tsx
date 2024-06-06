@@ -1,8 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 import { INTEREST_CATEGORY } from '../../constants/selectCategory';
+import { SelectTagProps } from '../../types/ComponentType/ComponentType';
 
-const SelectTag = ({ selectedCategory, handleClickCategory }) => {
+const SelectTag = ({
+  selectedCategory,
+  handleClickCategory,
+}: SelectTagProps) => {
   return (
     <SelectTagWrapper>
       {INTEREST_CATEGORY.map((data, idx) => {
@@ -49,7 +52,7 @@ const CategoryWrapper = styled.div`
   gap: 1.2rem;
 `;
 
-const CategoryImg = styled.p`
+const CategoryImg = styled.p<{ $isClicked: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
