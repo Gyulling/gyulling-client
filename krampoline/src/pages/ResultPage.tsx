@@ -1,18 +1,32 @@
-import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
 import Article from '../component/Result/Article';
 import RetryButton from '../component/Result/RetryButton';
 import { KAKAO_AUTH_URL } from '../constants/oAuth';
 
+const Result = () => {
+  const isSuccess = Math.random() >= 0.5;
+  // quiz는 무조건 true로 뜬다고 나와서 랜덤하게 적용
+  // isSuccess : random boolean을 적용해서 true일떄 페이지와 false 일떄 페이지를 렌덤하게 구분했음
+  const navigate = useNavigate();
 const Result = (): JSX.Element => {
-  const isSuccess = true;
-  const access_token = false;
+  // const isSuccess = true;
+  // const access_token = false;
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
+  const userId = sessionStorage.getItem('userId');
 
   const handleClickLoginButton = (): void => {
     window.location.href = KAKAO_AUTH_URL;
+  };
+
+  const handleClickPointButton = () => {
+    navigate('/');
+  };
+
+  const handleClickRetryButton = () => {
+    navigate('/quiz');
   };
 
   return (
@@ -26,15 +40,21 @@ const Result = (): JSX.Element => {
         <ImageContainer>
           {isSuccess ? <SuccessIcon /> : <Bomb />}
           {isSuccess && <InfoNumber>+50p</InfoNumber>}
-          {!isSuccess && <RetryButton>다시 도전하고 10p 얻기</RetryButton>}
+          {!isSuccess && (
+            <RetryButton onClick={handleClickRetryButton}>
+              다시 도전하고 10p 얻기
+            </RetryButton>
+          )}
         </ImageContainer>
       </SubWrapper>
-
-      {access_token ? (
+      {userId ? (
         <PointBtnWrapper>
-          <CheckPointBtn type="button">포인트 확인하기</CheckPointBtn>
+          <CheckPointBtn type="button" onClick={handleClickPointButton}>
+            포인트 확인하기
+          </CheckPointBtn>
         </PointBtnWrapper>
       ) : (
+        <BtnContainer>
         <BtnContainer>
           {isSuccess && <InfoText>로그인하고 +100p 받기</InfoText>}
           <KaKaoAuth onClick={handleClickLoginButton} />
