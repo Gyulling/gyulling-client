@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { IcLogoGray, ImgBlueBadge } from '../../assets';
 
 const ProfileCard = () => {
-  const RANDOM_NUM = parseInt(Math.random() * 100000).toLocaleString();
+  const RANDOM_NUM = Math.ceil(Math.random() * 100000).toLocaleString();
   // 서버에서 회원인증 성공 후 받아온 값
   const username = '정재희';
 
