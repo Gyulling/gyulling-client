@@ -8,23 +8,37 @@ import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
 import OnboardingPage from './pages/WaitingPage';
 
-const Router = () => {
-  const [homeComponent, setHomeComponent] = useState(<OnboardingPage />);
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+
+const Router = (): React.ReactElement | null => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [homeComponent, setHomeComponent] = useState<JSX.Element>(
+    <OnboardingPage isLoadingPage={false} />
+  );
 
   useEffect(() => {
-    setTimeout(() => {
-      setHomeComponent(<SelectPage />);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+
+      const userId = sessionStorage.getItem('userId');
+      userId ? setHomeComponent(<Home />) : setHomeComponent(<SelectPage />);
     }, 1500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/splash" element={homeComponent} />
+        <Route
+          path="/"
+          element={
+            isLoading ? <OnboardingPage isLoadingPage={false} /> : homeComponent
+          }
+        />
         <Route path="/login/oauth2/callback" element={<LoginCallback />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
-        <Route path="/" element={<Home />} />
         <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
