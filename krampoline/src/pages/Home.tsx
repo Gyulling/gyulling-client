@@ -6,7 +6,7 @@ import HomeHeader from '../component/Home/HomeHeader';
 
 const Home = () => {
   const point = 2500;
-  const navigate = useNavigate('/');
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <HomeHeader />
