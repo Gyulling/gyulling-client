@@ -7,9 +7,9 @@ import SelectTag from '../component/Select/SelectTag';
 
 const SelectPage = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<Array<string>>([]);
 
-  const handleClickCategory = (desc) => {
+  const handleClickCategory = (desc: string) => {
     if (selectedCategory.includes(desc)) {
       setSelectedCategory(
         selectedCategory.filter((category) => category !== desc)

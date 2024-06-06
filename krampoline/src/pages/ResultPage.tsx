@@ -5,13 +5,13 @@ import Article from '../component/Result/Article';
 import RetryButton from '../component/Result/RetryButton';
 import { KAKAO_AUTH_URL } from '../constants/oAuth';
 
-const Result = () => {
+const Result = (): JSX.Element => {
   const isSuccess = true;
   const access_token = false;
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
 
-  const handleClickLoginButton = () => {
+  const handleClickLoginButton = (): void => {
     window.location.href = KAKAO_AUTH_URL;
   };
 
@@ -35,7 +35,7 @@ const Result = () => {
           <CheckPointBtn type="button">포인트 확인하기</CheckPointBtn>
         </PointBtnWrapper>
       ) : (
-        <BtnContainer $isTokenExist={access_token}>
+        <BtnContainer>
           {isSuccess && <InfoText>로그인하고 +100p 받기</InfoText>}
           <KaKaoAuth onClick={handleClickLoginButton} />
         </BtnContainer>
@@ -105,7 +105,6 @@ const BtnContainer = styled.div`
   text-align: center;
   margin-top: 6.8rem;
   margin-bottom: 3.4rem;
-
   gap: 1.2rem;
 `;
 
