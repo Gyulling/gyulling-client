@@ -1,24 +1,22 @@
 import styled from 'styled-components';
 import { IcCloseGray, ImgHint } from '../../assets';
+import { ModalProps } from '../../types/CommonType/commonType';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
 const CONTENTS =
   '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
 
-const HintModalForm = ({ onClose }) => {
+const HintModalForm = ({ onClose }: ModalProps) => {
   return (
     <HintModalWrapper>
       <HintModalContents>
         <IconWrapper onClick={onClose}>
           <IcCloseGray />
         </IconWrapper>
-
         <ContentsWrapper>
           <Category>힌트</Category>
           <Title>{TITLE}</Title>
-
           <ImgHint />
-
           <Contents>{CONTENTS}</Contents>
         </ContentsWrapper>
       </HintModalContents>
