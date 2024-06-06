@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { ChildrenProps } from '../../types/CommonType/commonType';
 
-const Article = ({ children }) => {
+const Article = ({ children }: ChildrenProps) => {
   return (
     <ArticleWrapper>
       <Contents>{children}</Contents>
