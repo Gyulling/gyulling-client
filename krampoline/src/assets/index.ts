@@ -23,6 +23,25 @@ import ImgTurtle from './img/img_turtle.svg?react';
 
 // svg 더 추가하게 되면 ,(콤마)로 이어서 쓰기
 export {
-    Bomb, ICPlatinum, IcArrowBack, IcCloseGray, IcCorrectBlue, IcCorrectGray, IcCup, IcFailBlue, IcFailGray, IcFish, IcHomeButton, IcLogo, IcLogoGray, IcMyInfo, IcQuizBack, Ichome, ImgBlueBadge, ImgHint, ImgTurtle, KaKaoAuth, SuccessIcon
+  Bomb,
+  ICPlatinum,
+  IcArrowBack,
+  IcCloseGray,
+  IcCorrectBlue,
+  IcCorrectGray,
+  IcCup,
+  IcFailBlue,
+  IcFailGray,
+  IcFish,
+  IcHomeButton,
+  IcLogo,
+  IcLogoGray,
+  IcMyInfo,
+  IcQuizBack,
+  Ichome,
+  ImgBlueBadge,
+  ImgHint,
+  ImgTurtle,
+  KaKaoAuth,
+  SuccessIcon,
 };
-
