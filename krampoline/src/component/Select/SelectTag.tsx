@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { INTEREST_CATEGORY } from '../../constants/selectCategory';
-import { SelectTagProps } from '../../types/ComponentType/ComponentType';
+import { SelectTagProps } from '../../types/ComponentType/componentType';
 
 const SelectTag = ({
   selectedCategory,

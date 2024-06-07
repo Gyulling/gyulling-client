@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ChildrenProps } from '../../types/CommonType/commonType';
+import { RetryButtonProps } from '../../types/CommonType/commonType';
 
-const RetryButton = ({ children }: ChildrenProps) => {
+const RetryButton = ({ children }: RetryButtonProps) => {
   return <Button>{children}</Button>;
 };
 

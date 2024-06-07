@@ -1,6 +1,6 @@
 import { api } from '../../api';
 
-const getKeywords = async (selectedCategory) => {
+const getKeywords = async (selectedCategory: string[]) => {
   try {
     const { data } = await api.post('/api/v1/quiz', {
       keywords: [

@@ -7,8 +7,8 @@ import { ModalProps } from '../../types/CommonType/commonType';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
 
-const HintModalForm = ({ onClose }) => {
-  const [updataedContent, setUpdatedContent] = useState('');
+const HintModalForm = ({ onClose }: ModalProps) => {
+  const [updataedContent, setUpdatedContent] = useState<string>('');
   useEffect(() => {
     const hintBox = async () => {
       try {
@@ -21,8 +21,6 @@ const HintModalForm = ({ onClose }) => {
 
     hintBox();
   }, []);
-
-const HintModalForm = ({ onClose }: ModalProps) => {
   return (
     <HintModalWrapper>
       <HintModalContents>
@@ -34,7 +32,6 @@ const HintModalForm = ({ onClose }: ModalProps) => {
           <Title>{TITLE}</Title>
           <ImgHint />
           <Contents>{updataedContent}</Contents>
-          <Contents>{CONTENTS}</Contents>
         </ContentsWrapper>
       </HintModalContents>
     </HintModalWrapper>

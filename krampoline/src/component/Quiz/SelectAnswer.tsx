@@ -5,7 +5,7 @@ import {
   IcFailBlue,
   IcFailGray,
 } from '../../assets';
-import { SelectAnswerProps } from '../../types/ComponentType/ComponentType';
+import { SelectAnswerProps } from '../../types/ComponentType/componentType';
 
 const SelectAnswer = ({
   correctIc,

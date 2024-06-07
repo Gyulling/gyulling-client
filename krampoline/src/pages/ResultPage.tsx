@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { Bomb, KaKaoAuth, SuccessIcon } from '../assets';
 import Header from '../common/Header/Header';
 import Article from '../component/Result/Article';
@@ -10,14 +11,11 @@ const Result = () => {
   // quiz는 무조건 true로 뜬다고 나와서 랜덤하게 적용
   // isSuccess : random boolean을 적용해서 true일떄 페이지와 false 일떄 페이지를 렌덤하게 구분했음
   const navigate = useNavigate();
-const Result = (): JSX.Element => {
-  // const isSuccess = true;
-  // const access_token = false;
   const DUMMY =
     '제주에는 붉은바다거북, 푸른바다거북, 매부리바다거북, 장수거북, 올리브바다거북 등 바다거북 5종이 서식해요';
   const userId = sessionStorage.getItem('userId');
 
-  const handleClickLoginButton = (): void => {
+  const handleClickLoginButton = () => {
     window.location.href = KAKAO_AUTH_URL;
   };
 
@@ -54,7 +52,6 @@ const Result = (): JSX.Element => {
           </CheckPointBtn>
         </PointBtnWrapper>
       ) : (
-        <BtnContainer>
         <BtnContainer>
           {isSuccess && <InfoText>로그인하고 +100p 받기</InfoText>}
           <KaKaoAuth onClick={handleClickLoginButton} />
@@ -125,6 +122,7 @@ const BtnContainer = styled.div`
   text-align: center;
   margin-top: 6.8rem;
   margin-bottom: 3.4rem;
+
   gap: 1.2rem;
 `;
 
