@@ -155,7 +155,7 @@ custom hooks 정의하는 경우 이곳에서 정의 후 사용
 | 역할                 | 종류                                                                                                                                                                                                              |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Library              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black)                                                                                                                |
-| Programming Language | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)                                                                                             |
+| Programming Language | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white)                                                                                            |
 | Styling              | ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)                                                                           |
 | Data Fetching        | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white)                                                                                                                |
 | Formatting           | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
@@ -181,6 +181,8 @@ custom hooks 정의하는 경우 이곳에서 정의 후 사용
 
 <br />
 
-## 🎀 서비스 링크
+## 🎀 서비스 영상
 
-[🔗 Fin](https://k1c436ba7077fa.user-app.krampoline.com/)
+https://github.com/Gyulling/gyulling-client/assets/80264647/55e6511b-0cd8-467a-82e5-e66a0a0ec175
+
+
