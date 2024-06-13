@@ -45,8 +45,9 @@ const QuizPage = () => {
       // ? console.log(res); true 뜸
       // ? navigate('/result'); 이렇게 해도 작동 잘 됌 , state : correct 왜 넣은지 모르겠음
       // ? console.log(correct);  찍으면 undefiend 뜸
-      const { correct } = await postAnswer(correctIc);
-      navigate('/result', { state: correct });
+      const res = await postAnswer(correctIc);
+      console.log(res);
+      navigate('/result');
     } catch (error) {
       throw new Error(String(error));
     }
