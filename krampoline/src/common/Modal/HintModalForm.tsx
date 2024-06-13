@@ -3,11 +3,12 @@ import { IcCloseGray, ImgHint } from '../../assets';
 // import { useEffect } from 'react';
 import { useEffect, useState } from 'react';
 import getHint from '../../libs/apis/getHint';
+import { ModalProps } from '../../types/CommonType/commonType';
 
 const TITLE = '제주도 앞바다에 사는 생물들';
 
-const HintModalForm = ({ onClose }) => {
-  const [updataedContent, setUpdatedContent] = useState('');
+const HintModalForm = ({ onClose }: ModalProps) => {
+  const [updataedContent, setUpdatedContent] = useState<string>('');
   useEffect(() => {
     const hintBox = async () => {
       try {
@@ -20,7 +21,6 @@ const HintModalForm = ({ onClose }) => {
 
     hintBox();
   }, []);
-
   return (
     <HintModalWrapper>
       <HintModalContents>

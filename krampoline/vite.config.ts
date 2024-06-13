@@ -7,10 +7,9 @@ export default defineConfig({
   plugins: [react(), svgr()],
   base: '',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx'], // 여기서 .ts와 .tsx 확장자에 .을 추가합니다.
     alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
   },
-
   server: {
     host: 'localhost',
     port: 3000,

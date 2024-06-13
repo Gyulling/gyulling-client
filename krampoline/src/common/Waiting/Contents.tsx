@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { IcLogo } from '../../assets';
+import { ContentsProps } from '../../types/CommonType/commonType';
 
-const Contents = ({ textArr }) => {
+const Contents = ({ textArr }: ContentsProps) => {
   return (
     <ContentsWrapper>
       <IcLogo />

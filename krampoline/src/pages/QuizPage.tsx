@@ -15,6 +15,8 @@ const QuizPage = () => {
   const [modalOn, setModalOn] = useState(false);
   const mainContents = sessionStorage.getItem('contents');
 
+  if (!mainContents) return;
+
   const handleClickHint = async () => {
     setModalOn(true);
   };
@@ -43,8 +45,9 @@ const QuizPage = () => {
       // ? console.log(res); true 뜸
       // ? navigate('/result'); 이렇게 해도 작동 잘 됌 , state : correct 왜 넣은지 모르겠음
       // ? console.log(correct);  찍으면 undefiend 뜸
-      const { correct } = await postAnswer();
-      navigate('/result', { state: correct });
+      const res = await postAnswer(correctIc);
+      console.log(res);
+      navigate('/result');
     } catch (error) {
       throw new Error(String(error));
     }
@@ -74,7 +77,11 @@ const QuizPage = () => {
         />
       </Wrapper>
 
-      <OnButton disabled={!correctIc && !failIc} handleFn={handleClickOnBtn}>
+      <OnButton
+        disabled={!correctIc && !failIc}
+        isQuiz={true}
+        handleFn={handleClickOnBtn}
+      >
         제출
       </OnButton>
     </QuizPageWrapper>

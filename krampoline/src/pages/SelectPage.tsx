@@ -9,9 +9,9 @@ import getQuizContent from '../libs/apis/SelectPage/getQuizContents';
 
 const SelectPage = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
-  const handleClickCategory = (desc) => {
+  const handleClickCategory = (desc: string) => {
     if (selectedCategory.includes(desc)) {
       setSelectedCategory(
         selectedCategory.filter((category) => category !== desc)
@@ -33,7 +33,7 @@ const SelectPage = () => {
         sessionStorage.setItem('quizId', quizId);
       }
       if (content) {
-        sessionStorage.setItem('contents', content);
+        sessionStorage.setItem('contents', content.content);
         navigate('/quiz');
       }
     } catch (error) {

@@ -29,7 +29,7 @@ const Home = () => {
     fetchPoint();
   }, []);
 
-  const navigate = useNavigate('/');
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <HomeHeader />

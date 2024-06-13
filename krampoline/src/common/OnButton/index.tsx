@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { OnButtonProps } from '../../types/CommonType/commonType';
 
-const OnButton = ({ children, isQuiz, disabled, handleFn }) => {
+const OnButton = ({ children, isQuiz, disabled, handleFn }: OnButtonProps) => {
   return (
     <Button disabled={disabled} onClick={handleFn} $isQuiz={isQuiz}>
       {children}
@@ -8,7 +9,7 @@ const OnButton = ({ children, isQuiz, disabled, handleFn }) => {
   );
 };
 
-const Button = styled.button`
+const Button = styled.button<{ $isQuiz: boolean }>`
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.gray300 : theme.colors.prime};
   color: ${({ theme }) => theme.colors.white};

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { RetryButtonProps } from '../../types/CommonType/commonType';
 
-const RetryButton = ({ children, onClick }) => {
-  return <Button onClick={onClick}>{children}</Button>;
+const RetryButton = ({ children }: RetryButtonProps) => {
+  return <Button>{children}</Button>;
 };
 
 const Button = styled.button`

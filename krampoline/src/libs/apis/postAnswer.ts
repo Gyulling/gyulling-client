@@ -1,6 +1,6 @@
 import { api } from '../api';
 
-export const postAnswer = async (corretIc) => {
+export const postAnswer = async (corretIc: boolean) => {
   try {
     const quizId = sessionStorage.getItem('quizId');
     const userId = !sessionStorage.getItem('userId')
