@@ -8,9 +8,7 @@ import ResultPage from './pages/ResultPage';
 import SelectPage from './pages/SelectPage';
 import OnboardingPage from './pages/WaitingPage';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-
-const Router = (): React.ReactElement | null => {
+const Router = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [homeComponent, setHomeComponent] = useState<JSX.Element>(
     <OnboardingPage isLoadingPage={false} />
